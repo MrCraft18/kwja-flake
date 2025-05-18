@@ -41,3 +41,7 @@ repos:
         files: ^scripts/
         types: [ shell ]
         args: [ --exclude=SC2002 ]
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.7
+    hooks:
+      - id: actionlint

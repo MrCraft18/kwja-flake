@@ -23,13 +23,13 @@ jobs:
       - name: Install Poetry
         run: |
             pipx install poetry
-            echo "$HOME/.local/bin" >> $GITHUB_PATH
+            echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Build package
         env:
           POETRY_PYTHON: ${{ steps.setup-python.outputs.python-path }}
         run: |
           poetry config virtualenvs.in-project true
-          poetry env use $POETRY_PYTHON
+          poetry env use "$POETRY_PYTHON"
           poetry build -o dist
       - name: Install KWJA from wheel (non-Windows)
         if: ${{ matrix.os != 'windows-latest' }}
@@ -68,3 +68,4 @@ jobs:
           kwja --help
           kwja --tasks typo,char,word --model-size tiny --text "自然言語処理"
           kwja --tasks typo,char,seq2seq,word --model-size tiny --text "自然言語処理"
+        shell: pwsh
