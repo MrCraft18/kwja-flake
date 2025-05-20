@@ -24,7 +24,7 @@ jobs:
       - name: Install Poetry
         run: pipx install poetry
       - name: Add path for Python packages
-        run: echo "$HOME/.local/bin" >> $GITHUB_PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Install dependencies
         run: poetry install --no-interaction --only main --no-cache
       - name: Build package
